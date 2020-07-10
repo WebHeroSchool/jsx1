@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { count, length } from './numbers';
 
 const num = 45;
 const flag = true;
@@ -12,6 +13,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          {'count * length = ' + count * length}
         </p>
         <p style = {{ color: 'green' }}>
           Hello World!
