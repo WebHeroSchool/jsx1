@@ -28,6 +28,7 @@ function App() {
         {true}
         {false}
         {undefined}
+        {null}
       </header>
     </div>
   );
