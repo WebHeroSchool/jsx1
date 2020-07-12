@@ -1,4 +1,4 @@
-.section {
+.body {
   position: relative;
   margin: 0 auto;
   text-align: center;
@@ -6,4 +6,4 @@
   background-color: #f0f0f0;
 }
 
-.section__item { font-family: Arial }
+.item { font-family: Arial }
