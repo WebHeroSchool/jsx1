@@ -2,6 +2,7 @@ import React from 'react';
 import ItemList from '../ItemList';
 import InputItem from '../InputItem';
 import Footer from '../Footer';
+import './App.css';
 
 const todoItem = 'Написать приложение';
 const header = (<h1>Заметки:</h1>);
@@ -12,7 +13,7 @@ const App = () => {
     {value: 'Похвалить себя'}
   ];
 
-  return (<div>
+  return (<div className = 'section'>
     {header}
     <InputItem />
     <ItemList items = {items} />
