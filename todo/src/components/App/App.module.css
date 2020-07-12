@@ -1,0 +1,9 @@
+.body {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  width: 30%;
+  background-color: #f0f0f0;
+}
+
+.item { font-family: Arial }
