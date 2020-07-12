@@ -8,9 +8,18 @@ const todoItem = 'Написать приложение';
 const header = (<h1>Заметки:</h1>);
 const App = () => {
   const items = [
-    {value: todoItem},
-    {value: 'Выполнить 3-5 заданий в школе'},
-    {value: 'Похвалить себя'}
+    {
+      value: todoItem,
+      isDone: false,
+    },
+    {
+      value: 'Выполнить 3-5 заданий в школе',
+      isDone: true,
+    },
+    {
+      value: 'Похвалить себя',
+      isDone: true,
+    }
   ];
 
   return (<div className = {styles.body}>

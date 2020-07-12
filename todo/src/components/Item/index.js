@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from '../App/App.module.css';
+import classnames from 'classnames';
 
-const Item = ({ value }) => (<span className = {styles.item}>{value}</span>);
+const Item = ({ value, isDone }) => (<span className = {
+  classnames({
+    [styles.item]: true,
+    [styles.done]: isDone,
+  })
+}>{value}</span>);
 
 export default Item;
