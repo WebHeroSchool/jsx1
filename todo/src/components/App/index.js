@@ -1,0 +1,23 @@
+import React from 'react';
+import ItemList from '../ItemList';
+import InputItem from '../InputItem';
+import Footer from '../Footer';
+
+const todoItem = 'Написать приложение';
+const header = (<h1>Заметки:</h1>);
+const App = () => {
+  const items = [
+    {value: todoItem},
+    {value: 'Выполнить 3-5 заданий в школе'},
+    {value: 'Похвалить себя'}
+  ];
+
+  return (<div>
+    {header}
+    <InputItem />
+    <ItemList items = {items} />
+    <Footer count = {3} />
+  </div>);
+}
+
+export default App;
