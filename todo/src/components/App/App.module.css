@@ -13,4 +13,4 @@
 
 .item { font-family: Arial }
 
-.done { color: #c4c4c4; }
+.done { text-decoration: line-through; }
