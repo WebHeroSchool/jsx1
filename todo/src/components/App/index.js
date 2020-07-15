@@ -7,8 +7,8 @@ import styles from './App.module.css';
 const todoItem = 'Написать приложение';
 const header = (<h1 className = {styles.header}>Заметки:</h1>);
 class App extends React.Component {
-  render() {
-    const items = [
+  state = {
+    items: [
       {
         value: todoItem,
         isDone: false,
@@ -21,12 +21,13 @@ class App extends React.Component {
         value: 'Похвалить себя',
         isDone: true,
       }
-    ];
-
+    ]
+  };
+  render() {
     return (<div className = {styles.body}>
       {header}
       <InputItem />
-      <ItemList items = {items} />
+      <ItemList items = {this.state.items} />
       <Footer count = {3} />
     </div>);
   }
