@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import styles from './App.module.css';
 
 const todoItem = 'Написать приложение';
-const header = (<h1 className = {styles.header}>Заметки:</h1>);
+const header = (<h1 className = {styles.header}>Notes:</h1>);
 class App extends React.Component {
   state = {
     items: [
