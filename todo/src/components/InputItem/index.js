@@ -15,4 +15,5 @@ const InputItem = () => (<div className = {styles.input}>
     <AddCircleOutlineOutlinedIcon color="primary" fontSize = 'large' />
   </span>
 </div>);
+
 export default InputItem;

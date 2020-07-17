@@ -1,3 +1,11 @@
 .input {
-  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
+
+.addIcon {
+  position: relative;
+  top: 7px;
+}
+
+.comp { width: 60%; }
