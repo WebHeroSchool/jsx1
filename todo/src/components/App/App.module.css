@@ -16,7 +16,14 @@
 .done { text-decoration: line-through; }
 
 .icons {
-  display: inline-block;
   position: relative;
+  padding-right: 42px;
   top: 6px;
 }
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear:hover { cursor: pointer; }

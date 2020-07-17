@@ -4,20 +4,27 @@ import classnames from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const Item = ({ value, isDone, onClickDone, id }) => (<span className = {
+const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<span className = {
     classnames({
       [styles.item]: true,
       [styles.done]: isDone,
     })
   }>
+    <div className = {styles.list}>
+    <div>
     <Checkbox
       color = 'primary'
       checked = {isDone}
       onClick = {() => onClickDone(id)}
     />
     {value}
+    </div>
     <div className = {styles.icons}>
-      <DeleteForeverOutlinedIcon />
+      <DeleteForeverOutlinedIcon
+        className = {styles.clear}
+        onClick = {() => onClickDelete(id)}
+      />
+    </div>
     </div>
 </span>);
 
