@@ -16,7 +16,7 @@ const Footer = ({ count }) => (<div>
     </div>
     </Tabs>
     <div className = {styles.block}>
-      <span className = {styles.count}>Осталось дел: {count}</span>
+      <span className = {styles.count}>{count} items left</span>
       <span className = {styles.delete}>Clear completed</span>
     </div>
 </div>);
