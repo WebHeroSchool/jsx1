@@ -9,3 +9,5 @@
 }
 
 .comp { width: 60%; }
+
+.addButton:hover { cursor: pointer }
