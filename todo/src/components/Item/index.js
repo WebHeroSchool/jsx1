@@ -11,20 +11,20 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<span class
     })
   }>
     <div className = {styles.list}>
-    <div>
-    <Checkbox
-      color = 'primary'
-      checked = {isDone}
-      onClick = {() => onClickDone(id)}
-    />
-    {value}
-    </div>
-    <div className = {styles.icons}>
-      <DeleteForeverOutlinedIcon
-        className = {styles.clear}
-        onClick = {() => onClickDelete(id)}
+      <div>
+      <Checkbox
+        color = 'primary'
+        checked = {isDone}
+        onClick = {() => onClickDone(id)}
       />
-    </div>
+      {value}
+      </div>
+      <div className = {styles.icons}>
+        <DeleteForeverOutlinedIcon
+          className = {styles.clear}
+          onClick = {() => onClickDelete(id)}
+        />
+      </div>
     </div>
 </span>);
 
