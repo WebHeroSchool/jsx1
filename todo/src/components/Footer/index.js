@@ -3,7 +3,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import styles from './Footer.module.css';
 
-const Footer = ({ count }) => (<div className = {styles.footer}>
+const Footer = ({ count }) => (<div>
     <Tabs
       indicatorColor="primary"
       textColor="primary"
