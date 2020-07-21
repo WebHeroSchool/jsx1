@@ -1,0 +1,13 @@
+.input {
+  display: flex;
+  justify-content: space-around;
+}
+
+.addIcon {
+  position: relative;
+  top: 7px;
+}
+
+.comp { width: 60%; }
+
+.addButton:hover { cursor: pointer }
