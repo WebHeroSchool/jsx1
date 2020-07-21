@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemList from '../ItemList';
 import InputItem from '../InputItem';
 import Footer from '../Footer';
@@ -68,6 +69,10 @@ class App extends React.Component {
 
 App.defaultProps = {
   id: 1,
-}
+};
+
+App.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default App;
