@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../App/App.module.css';
 import classnames from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<span className = {
+const Item = ({ value, isDone, id, onClickDone, onClickDelete }) => (<span className = {
     classnames({
       [styles.item]: true,
       [styles.done]: isDone,
@@ -27,5 +28,23 @@ const Item = ({ value, isDone, onClickDone, id, onClickDelete }) => (<span class
       </div>
     </div>
 </span>);
+
+Item.defaultProps = {
+  isDone: false,
+};
+
+Item.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  isDone: PropTypes.bool.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
+  onClickDelete: PropTypes.func.isRequired,
+  onClickDone: PropTypes.func.isRequired,
+};
 
 export default Item;

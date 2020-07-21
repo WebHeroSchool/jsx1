@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ItemList from '../ItemList';
 import InputItem from '../InputItem';
 import Footer from '../Footer';
@@ -47,10 +46,9 @@ class App extends React.Component {
       {
         value,
         isDone: false,
-        id: state.count + 1,
+        id: state.items.length + 1,
       }
     ],
-    count: state.count + 1
   }));
 
   render() {
@@ -62,17 +60,9 @@ class App extends React.Component {
         onClickDone = {this.onClickDone}
         onClickDelete = {this.onClickDelete}
       />
-      <Footer />
+      <Footer count = {this.state.items.length} />
     </div>);
   }
-};
-
-App.defaultProps = {
-  id: 1,
-};
-
-App.propTypes = {
-  id: PropTypes.number.isRequired,
 };
 
 export default App;
