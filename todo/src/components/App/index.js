@@ -4,13 +4,12 @@ import InputItem from '../InputItem';
 import Footer from '../Footer';
 import styles from './App.module.css';
 
-const todoItem = 'Написать приложение';
 const header = (<h1 className = {styles.header}>Notes:</h1>);
 class App extends React.Component {
   state = {
     items: [
       {
-        value: todoItem,
+        value: 'Написать приложение',
         isDone: false,
         id: 1,
       },
@@ -25,7 +24,6 @@ class App extends React.Component {
         id: 3,
       }
     ],
-    count: 3,
   };
 
   onClickDone = id => {
@@ -47,10 +45,9 @@ class App extends React.Component {
       {
         value,
         isDone: false,
-        id: state.count + 1,
+        id: state.items.length + 1,
       }
     ],
-    count: state.count + 1
   }));
 
   render() {
@@ -62,7 +59,7 @@ class App extends React.Component {
         onClickDone = {this.onClickDone}
         onClickDelete = {this.onClickDelete}
       />
-      <Footer count = {this.state.count} />
+      <Footer count = {this.state.items.length} />
     </div>);
   }
 };
