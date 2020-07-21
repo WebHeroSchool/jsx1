@@ -14,4 +14,8 @@ const ItemList = ({ items, onClickDone, onClickDelete }) => (<ul>
   </li>))}
 </ul>);
 
+ItemList.defaultProps = {
+  items: [],
+};
+
 export default ItemList;

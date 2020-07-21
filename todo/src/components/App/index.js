@@ -46,10 +46,9 @@ class App extends React.Component {
       {
         value,
         isDone: false,
-        id: state.count + 1,
+        id: state.items.length + 1,
       }
     ],
-    count: state.count + 1
   }));
 
   render() {
@@ -61,13 +60,9 @@ class App extends React.Component {
         onClickDone = {this.onClickDone}
         onClickDelete = {this.onClickDelete}
       />
-      <Footer />
+      <Footer count = {this.state.items.length} />
     </div>);
   }
 };
-
-App.defaultProps = {
-  id: 1,
-}
 
 export default App;
