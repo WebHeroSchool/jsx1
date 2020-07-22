@@ -5,29 +5,47 @@ import classnames from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
-const Item = ({ value, isDone, id, onClickDone, onClickDelete }) => (<span className = {
-    classnames({
-      [styles.item]: true,
-      [styles.done]: isDone,
-    })
-  }>
-    <div className = {styles.list}>
-      <div>
-      <Checkbox
-        color = 'primary'
-        checked = {isDone}
-        onClick = {() => onClickDone(id)}
-      />
-      {value}
+class Item extends React.Component {
+  componentDidMount() {
+    console.log('mounting');
+  }
+
+  componentDidUpdate() {
+    console.log('update');
+  }
+
+  componentWillUnmount() {
+    console.log('unmount');
+  }
+
+  render() {
+    const { value, isDone, id, onClickDone, onClickDelete } = this.props;
+
+    return (<span className = {
+      classnames({
+        [styles.item]: true,
+        [styles.done]: isDone,
+      })}>
+      <div className = {styles.list}>
+        <div>
+          <Checkbox
+            className = {styles.checkbox}
+            color = 'primary'
+            checked = {isDone}
+            onClick = {() => onClickDone(id)}
+          />
+          {value}
+        </div>
+        <div className = {styles.icons}>
+          <DeleteForeverOutlinedIcon
+            className = {styles.clear}
+            onClick = {() => onClickDelete(id)}
+          />
+        </div>
       </div>
-      <div className = {styles.icons}>
-        <DeleteForeverOutlinedIcon
-          className = {styles.clear}
-          onClick = {() => onClickDelete(id)}
-        />
-      </div>
-    </div>
-</span>);
+    </span>);
+  }
+}
 
 Item.defaultProps = {
   isDone: false,

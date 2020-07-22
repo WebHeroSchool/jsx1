@@ -26,4 +26,9 @@
   justify-content: space-between;
 }
 
+.checkbox {
+  position: relative;
+  bottom: 2px;
+}
+
 .clear:hover { cursor: pointer; }
