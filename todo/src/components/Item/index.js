@@ -37,12 +37,12 @@ Item.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]),
+  ]).isRequired,
   isDone: PropTypes.bool.isRequired,
   id: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.number.isRequired,
-  ]),
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   onClickDelete: PropTypes.func.isRequired,
   onClickDone: PropTypes.func.isRequired,
 };
