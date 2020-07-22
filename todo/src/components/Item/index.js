@@ -7,15 +7,11 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 
 class Item extends React.Component {
   componentDidMount() {
-    console.log('mounting');
-  }
-
-  componentDidUpdate() {
-    console.log('update');
+    this.timerID = setInterval(() => console.log('mounting'), 1000);
   }
 
   componentWillUnmount() {
-    console.log('unmount');
+    clearInterval(this.timerID);
   }
 
   render() {
