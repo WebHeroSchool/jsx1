@@ -1,0 +1,34 @@
+.body {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f7dc6f;
+}
+
+.header {
+  margin: 0 0 15px 0;
+  font-family: Garamond;
+  color: #2471a3;
+}
+
+.item { font-family: Arial }
+
+.done { text-decoration: line-through; }
+
+.icons {
+  position: relative;
+  padding-right: 42px;
+  top: 6px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  position: relative;
+  bottom: 2px;
+}
+
+.clear:hover { cursor: pointer; }
