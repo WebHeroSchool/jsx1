@@ -6,14 +6,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
 class Item extends React.Component {
-  componentDidMount() {
-    this.timerID = setInterval(() => console.log('mounting'), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
   render() {
     const { value, isDone, id, onClickDone, onClickDelete } = this.props;
 
