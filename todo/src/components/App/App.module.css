@@ -1,34 +1,11 @@
-.body {
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-  width: 30%;
-  background-color: #f7dc6f;
-}
-
-.header {
-  font-family: Garamond;
-  color: #2471a3;
-}
-
-.item { font-family: Arial }
-
-.done { text-decoration: line-through; }
-
-.icons {
-  position: relative;
-  padding-right: 42px;
-  top: 6px;
-}
-
-.list {
+.wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.checkbox {
-  position: relative;
-  bottom: 2px;
-}
+.content { width: 50%; }
 
-.clear:hover { cursor: pointer; }
+.link {
+  text-decoration: none;
+  color: #000;
+}

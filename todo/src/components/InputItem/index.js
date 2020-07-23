@@ -46,8 +46,8 @@ class InputItem extends React.Component {
   render() {
     return (<div className = {styles.input}>
       <TextField
-        error = {this.state.error}
         className = {styles.comp}
+        error = {this.state.error}
         id="filled-basic"
         label={this.state.label}
         variant="filled"

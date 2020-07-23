@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '../App/App.module.css';
+import styles from '../Todo/Todo.module.css';
 import classnames from 'classnames';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';

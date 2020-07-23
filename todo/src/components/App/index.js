@@ -1,76 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import ItemList from '../ItemList';
-import InputItem from '../InputItem';
-import Footer from '../Footer';
+import React from 'react';
 import styles from './App.module.css';
+import Todo from '../Todo';
+import About from '../About';
+import Contacts from '../Contacts';
+import Card from '@material-ui/core/Card';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const header = (<h1 className = {styles.header}>Notes:</h1>);
-const App = () => {
-  const initialState = {
-    items: [
-      {
-        value: 'Написать приложение',
-        isDone: false,
-        id: 1,
-      },
-      {
-        value: 'Выполнить 3-5 заданий в школе',
-        isDone: true,
-        id: 2,
-      },
-      {
-        value: 'Похвалить себя',
-        isDone: true,
-        id: 3,
-      }
-    ],
-  };
-
-  const [items, setItems] = useState(initialState.items);
-
-  useEffect(() => console.log('update'));
-  useEffect(() => {
-    console.log('mount');
-  }, []);
-
-  const onClickDone = id => {
-    const newItemList = items.map(item => {
-      const newItem = { ...item };
-      if(item.id === id) {
-        newItem.isDone = !item.isDone;
-      }
-      return newItem;
-    })
-    setItems(newItemList);
-  };
-
-  const onClickDelete = id => {
-    const newItems = items.filter(item => item.id !== id);
-    setItems(newItems);
-  };
-
-  const onClickAdd = value => {
-    const newTodoItem = [
-      ...items,
-      {
-        value,
-        isDone: false,
-        id: items.length + 1,
-      }
-    ];
-    setItems(newTodoItem);
-  };
-
-  return (<div className = {styles.body}>
-    {header}
-    <InputItem onClickAdd = {onClickAdd} />
-    <ItemList
-      items = {items}
-      onClickDone = {onClickDone}
-      onClickDelete = {onClickDelete}
-    />
-    <Footer count = {items.length} />
-  </div>);
-};
+const App = () =>
+  (<Router>
+    <div className = {styles.wrap}>
+      <Card className = {styles.sidebar}>
+        <MenuList>
+          <Link to = '/' className = {styles.link}><MenuItem>About</MenuItem></Link>
+          <Link to = '/todo' className = {styles.link}><MenuItem>Todo</MenuItem></Link>
+          <Link to = '/contacts' className = {styles.link}><MenuItem>Contacts</MenuItem></Link>
+        </MenuList>
+      </Card>
+      <Card className = {styles.content}>
+        <Route path = '/' exact component = {About} />
+        <Route path = '/todo' component = {Todo} />
+        <Route path = '/contacts' component = {Contacts} />
+      </Card>
+    </div>
+  </Router>);
 
 export default App;
