@@ -4,38 +4,45 @@ import styles from './About.module.css';
 
 
 const octokit = new Octokit();
+const name = 'Heiden88';
 
 class About extends React.Component {
   state = {
-    isLoading: true,
+    isLoading: false,
     fetchRepos: [],
     fetchUser: [],
-    fetchFailure: '',
+    fetchFailure: false,
     fetchRequest: [],
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/')
-    .then(response => response.json())
-    .then(answer => this.setState({fetchRequest: answer}))
-    .catch(e => console.log('error'));
-
     octokit.repos.listForUser({
-      username: 'Heiden88',
+      username: name,
     }).then(({ data }) => {
       this.setState({
         fetchRepos: data,
-        isLoading: false,
+        isLoading: true,
       });
-    });
+    })
+      .catch(error => {
+        this.setState({
+          fetchFailure: true,
+        });
+      });
 
     octokit.users.getByUsername({
-      username: 'Heiden88',
+      username: name,
     }).then(({ data }) => {
       this.setState({
         fetchUser: data,
+        isLoading: true,
       });
-    });
+    })
+      .catch(error => {
+        this.setState({
+          fetchFailure: true,
+        });
+      });
   }
 
   render() {
@@ -56,17 +63,22 @@ class About extends React.Component {
       </div>
     </div>);
 
-    const { isLoading, fetchRepos, fetchUser } = this.state;
+    const { isLoading, fetchRepos, fetchUser, fetchFailure } = this.state;
     return (
     <div>
-      {!isLoading && <div>
+      {fetchFailure && <div>
+        {'error: Пользователь не найден'}
+      </div>}
+
+      {isLoading && <div>
         <img src = {fetchUser.avatar_url} alt = 'avatar' className = {styles.img}></img>
         <h2>{fetchUser.login}</h2>
         <h3>{fetchUser.name}</h3>
         <p>{fetchUser.location}</p>
       </div>}
-      <h1 className = {styles.title}>{ isLoading ? <Preloader /> : 'My repositories' }</h1>
-      {!isLoading && <ol>
+      <h1 className = {styles.title}>{ !isLoading ? <Preloader /> : 'My repositories' }</h1>
+      
+      {isLoading && <ol>
         {fetchRepos.map(repo => (<li key = {repo.id}>
           <a href = {repo.html_url} alt = 'htmlUrl'>{repo.name}</a>
         </li>))}
