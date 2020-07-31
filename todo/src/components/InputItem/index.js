@@ -19,19 +19,25 @@ class InputItem extends React.Component {
     }
     else {
       this.setState({
-        inputValue: event.target.value.toUpperCase(),
+        inputValue: event.target.value,
         inputHelperText: '',
         error: false,
       });
     }
   };
 
-  onButtonClick = () => {
+  onButtonClick = items => {
     if(this.state.inputValue !== '') {
-      this.setState({
-        inputValue: ''
+      console.log(this.state.inputValue);
+      console.log(items[1]);
+      this.props.items.forEach(item => {
       });
-      this.props.onClickAdd(this.state.inputValue)
+          this.setState({
+            inputValue: ''
+          });
+          this.props.onClickAdd(this.state.inputValue);
+
+
     }
     else {
       this.setState(state => ({

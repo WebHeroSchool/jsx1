@@ -67,14 +67,33 @@ class About extends React.Component {
     return (
     <div>
       {fetchFailure && <div>
-        {'error: Пользователь не найден'}
+        {'Что-то пошло не так...'}
       </div>}
 
       {isLoading && <div>
         <img src = {fetchUser.avatar_url} alt = 'avatar' className = {styles.img}></img>
-        <h2>{fetchUser.login}</h2>
-        <h3>{fetchUser.name}</h3>
-        <p>{fetchUser.location}</p>
+        <a
+          href = {fetchUser.html_url}
+          className = {styles.linkUser}
+        >
+          {fetchUser.name}
+        </a>
+        <p>{fetchUser.bio}</p>
+        <div>
+          <div>{'Портфолио:'}</div>
+          <a
+            href = 'https://heiden88.github.io/TeslaWHSchool/'
+            className = {styles.link}
+          >
+            Tesla landing</a>
+          <a
+            href = 'https://heiden88.github.io/GameWHSchool/'
+            className = {styles.link}
+          >
+            Game 'Find the bug'
+          </a>
+        </div>
+
       </div>}
       <h1 className = {styles.title}>{ !isLoading ? <Preloader /> : 'My repositories' }</h1>
       
