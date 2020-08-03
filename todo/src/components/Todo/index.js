@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList';
 import InputItem from '../InputItem';
 import Footer from '../Footer';
@@ -6,9 +6,17 @@ import styles from './Todo.module.css';
 
 const header = (<h1 className = {styles.header}>Notes:</h1>);
 const Todo = () => {
-  // Переделать
-  const initialState = { items: [] };
+
+  const initialState = {
+    items: JSON.parse(localStorage.getItem('items')) || [],
+    filter: 'All',
+  };
   const [items, setItems] = useState(initialState.items);
+  const [filter, setFilter] = useState(initialState.filter);
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   const onClickDone = id => {
     const newItemList = items.map(item => {
@@ -30,13 +38,26 @@ const Todo = () => {
     const newTodoItem = [
       ...items,
       {
-        value,
+        value: value,
         isDone: false,
         id: items.length + 1,
       }
     ];
     setItems(newTodoItem);
   };
+
+  const filterItems = (items, filter) => {
+    switch(filter) {
+      case 'Active':
+        return items.filter(item => !item.isDone);
+      case 'Completed':
+        return items.filter(item => item.isDone);
+      default:
+        return items;
+    }
+  };
+
+  const onFilterChange = name => setFilter(name);
 
   return (<div className = {styles.body}>
     {header}
@@ -49,7 +70,12 @@ const Todo = () => {
       onClickDone = {onClickDone}
       onClickDelete = {onClickDelete}
     />
-    <Footer count = {items.length} />
+    <Footer
+      count = {items.length}
+      onFilterChange = {onFilterChange}
+      filterItems = {filterItems}
+      filter = {filter}
+    />
   </div>);
 };
 

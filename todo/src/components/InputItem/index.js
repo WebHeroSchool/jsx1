@@ -28,23 +28,24 @@ class InputItem extends React.Component {
 
   onButtonClick = items => {
     if(this.state.inputValue !== '') {
-      console.log(this.state.inputValue);
-      console.log(items[1]);
-      this.props.items.forEach(item => {
-      });
-          this.setState({
+      if(this.props.items.find(item => this.state.inputValue === item.value)) {
+        this.setState(state => ({
+          inputHelperText: 'Это заметка уже есть!',
+          error: true,
+        }));  
+      }
+      else {
+        this.setState({
             inputValue: ''
-          });
-          this.props.onClickAdd(this.state.inputValue);
-
-
+        });
+        this.props.onClickAdd(this.state.inputValue);
+      }
     }
     else {
       this.setState(state => ({
-        inputHelperText: 'Incorrect entry',
+        inputHelperText: 'Пустое поле!',
         isEmpty: true,
         error: true,
-        label: 'Enter the to-do',
       }));
     }
   };

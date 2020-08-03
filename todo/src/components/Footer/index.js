@@ -5,7 +5,7 @@ import styles from './Footer.module.css';
 import Badge from '@material-ui/core/Badge';
 import MailIcon from '@material-ui/icons/Mail';
 
-const Footer = ({ count }) => (<div>
+const Footer = ({ count, onFilterChange, filterItems, filter }) => (<div>
     <div className = {styles.tab}>
       <Badge color="secondary" badgeContent={count}>
         <MailIcon />
