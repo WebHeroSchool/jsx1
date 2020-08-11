@@ -5,14 +5,30 @@ import styles from './Footer.module.css';
 import Badge from '@material-ui/core/Badge';
 import MailIcon from '@material-ui/icons/Mail';
 
-const Footer = ({ count, onFilterChange, filterItems, filter }) => (<div>
+const Footer = ({ onFilterChange, count }) => (<div>
     <div className = {styles.tab}>
-      <Badge color="secondary" badgeContent={count}>
+      <Badge
+        color="secondary"
+        badgeContent={count}
+        className = {styles.iconCount}
+      >
         <MailIcon />
       </Badge>
-      <Tab label="All" />
-      <Tab label="Active" />
-      <Tab label="Completed" />
+      <Tab
+        label="All"
+        onClick = {() => onFilterChange('All')}
+        className = {styles.button}
+      />
+      <Tab
+        label="Active"
+        onClick = {() => onFilterChange('Active')}
+        className = {styles.button}
+      />
+      <Tab
+        label="Completed"
+        onClick = {() => onFilterChange('Completed')}
+        className = {styles.button}
+      />
     </div>
 </div>);
 

@@ -1,9 +1,10 @@
 .wrap {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
-.content { width: 50%; }
+.content { min-width: 420px; }
 
 .link {
   text-decoration: none;

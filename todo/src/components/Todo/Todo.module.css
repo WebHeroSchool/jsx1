@@ -1,12 +1,11 @@
 .body {
   position: relative;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #f7dc6f;
+  background-color: #b36ff747;
 }
 
 .header {
   margin: 0 0 15px 0;
+  text-align: center;
   font-family: Garamond;
   color: #2471a3;
 }
@@ -30,5 +29,21 @@
   position: relative;
   bottom: 2px;
 }
+
+.wrapImage {
+  min-width: 266px;
+  min-height: 200px;
+  width: 35%;
+  margin: 0 auto;
+  padding-top: 25px;
+
+}
+
+.image {
+  min-height: 163px;
+  background: url('../Image/image.svg') no-repeat;
+}
+
+.subtitle { text-align: center; }
 
 .clear:hover { cursor: pointer; }

@@ -34,6 +34,12 @@ class InputItem extends React.Component {
           error: true,
         }));  
       }
+      else if(this.state.inputValue.length > 50) {
+       this.setState(state => ({
+          inputHelperText: 'Превышена длина заметки!',
+          error: true,
+        })); 
+      }
       else {
         this.setState({
             inputValue: ''

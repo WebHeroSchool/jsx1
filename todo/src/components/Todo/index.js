@@ -4,9 +4,7 @@ import InputItem from '../InputItem';
 import Footer from '../Footer';
 import styles from './Todo.module.css';
 
-const header = (<h1 className = {styles.header}>Notes:</h1>);
 const Todo = () => {
-
   const initialState = {
     items: JSON.parse(localStorage.getItem('items')) || [],
     filter: 'All',
@@ -46,35 +44,49 @@ const Todo = () => {
     setItems(newTodoItem);
   };
 
-  const filterItems = (items, filter) => {
-    switch(filter) {
-      case 'Active':
-        return items.filter(item => !item.isDone);
-      case 'Completed':
-        return items.filter(item => item.isDone);
-      default:
-        return items;
-    }
+  let filterItems;
+  let count;
+  switch(filter) {
+    case 'Active':
+      filterItems = items.filter(item => !item.isDone);
+      count = items.filter(item => item.isDone === false).length;
+      break;
+    case 'Completed':
+      filterItems = items.filter(item => item.isDone);
+      count = items.filter(item => item.isDone === true).length;
+      break;
+    default:
+      filterItems = items;
+      count = items.length;
   };
 
   const onFilterChange = name => setFilter(name);
 
   return (<div className = {styles.body}>
-    {header}
+    <h1 className = {styles.header}>Notes:</h1>
     <InputItem
       onClickAdd = {onClickAdd}
       items = {items}
     />
-    <ItemList
-      items = {items}
-      onClickDone = {onClickDone}
-      onClickDelete = {onClickDelete}
-    />
+    <div>
+      {items.length === 0 ? (
+        <div className = {styles.wrapImage}>
+          <div className = {styles.image}></div>
+          <h3 className = {styles.subtitle}>Добавь задачу!</h3>
+        </div>
+      ) : (
+        <ItemList
+          items = {items}
+          onClickDone = {onClickDone}
+          onClickDelete = {onClickDelete}
+          filterItems = {filterItems}
+          name = {filter}
+        />
+      )}
+    </div>
     <Footer
-      count = {items.length}
+      count = {count}
       onFilterChange = {onFilterChange}
-      filterItems = {filterItems}
-      filter = {filter}
     />
   </div>);
 };
