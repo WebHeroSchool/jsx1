@@ -11,7 +11,7 @@ const App = () =>
   (<Router>
     <div className = {styles.wrap}>
       <Card className = {styles.sidebar}>
-        <MenuList>
+        <MenuList className = {styles.menu}>
           <Link to = '/' className = {styles.link}><MenuItem>About</MenuItem></Link>
           <Link to = '/todo' className = {styles.link}><MenuItem>Todo</MenuItem></Link>
         </MenuList>

@@ -17,7 +17,6 @@
 
 .letter {
   float: left;
-  font-size: 14px;
   color: #777;
 }
 
@@ -27,7 +26,8 @@
   animation-iteration-count: infinite;
 }
 
-.letter { font-size: 20px; }
+.letter,
+.linkUser { font-size: 20px; }
 
 .letter:nth-child(1) { animation-delay: 0.48s; }
 
@@ -55,12 +55,25 @@
   100% { opacity: 1; }
 }
 
+.infoBlock,
+.infoBio,
+.descRep,
+.nameAndDate { display: flex; }
+
+.infoBio {
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
 .title { text-align: center; }
 
 .img {
   width: 200px;
   height: 200px;
 }
+
+.nameAndDate { justify-content: space-between; }
 
 .linkUser,
 .link {
@@ -70,10 +83,4 @@
   color: #000;
 }
 
-.linkUser {
-  font-size: 20px;
-}
-
-.link {
-  font-size: 14px;
-}
+.link { font-size: 14px; }
