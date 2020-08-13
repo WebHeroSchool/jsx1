@@ -13,12 +13,14 @@ class About extends React.Component {
     fetchUser: [],
     fetchFailure: false,
     fetchRequest: [],
+    fetchTech: [],
   }
 
   componentDidMount() {
     octokit.repos.listForUser({
       username: name,
     }).then(({ data }) => {
+      console.log(data);
       this.setState({
         fetchRepos: data,
         isLoading: true,
@@ -45,6 +47,13 @@ class About extends React.Component {
       });
   }
 
+  // onGetObj = url => {
+  //   let Httpreq = new XMLHttpRequest();
+  //   Httpreq.open("GET",url,false);
+  //   Httpreq.send(null);
+  //   return Httpreq.responseText;  
+  // }
+
   render() {
     const Preloader = () => (<div className = {styles.loadWrapp}>
       <div className = {styles.load}>
@@ -63,7 +72,7 @@ class About extends React.Component {
       </div>
     </div>);
 
-    const { isLoading, fetchRepos, fetchUser, fetchFailure } = this.state;
+    const { isLoading, fetchRepos, fetchUser, fetchFailure, fetchTech } = this.state;
     return (
       <div>
         {fetchFailure && <div>
@@ -121,7 +130,12 @@ class About extends React.Component {
                 </span>
               </div>
               <div className = {styles.descRep}>
-                <span>{repo.language}</span>
+                <span> {
+                  fetch(repo.languages_url)
+                    .then(response => response.json())
+                    .then(result => console.log(result))
+                }
+                </span>
               </div>
             </div>
           </li>))}
