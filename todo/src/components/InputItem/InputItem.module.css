@@ -1,0 +1,12 @@
+.addIcon {
+  position: relative;
+  top: 7px;
+}
+
+.comp {
+  min-width: 230px !important;
+  width: 75%;
+  margin: 0 14px !important;
+}
+
+.addButton:hover { cursor: pointer }
